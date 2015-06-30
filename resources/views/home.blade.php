@@ -19,17 +19,20 @@
  						<tr>
  						<td>{{$email->id_send}}</td>
  						<td>{{$email->id_receive}}</td>
-		
+
  					    <td>{{$email->subject}}</td>
 								
  						<td>{{$email->detail}}</td>
 								
-
  						</tr>
  						@endforeach
  						
 					</table>
 				</div>
+
+				<form action = "{{ url('send') }}"  method="GET">
+					<input type="submit" value="Create New Email">
+				</form>
 			
 		</div>
 	</div>

@@ -12,7 +12,6 @@
 */
 
 
-Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -20,18 +19,21 @@ Route::get('send','EmailController@index');
 
 Route::post('store','EmailController@store');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', function () {
+    return view('Welcome');
+});
+Route::get('/', 'Auth\AuthController@getLogin');
 
 // Route::get('login', 'Auth\AuthController@getLogin');
 // Route::get('register', 'Auth\AuthController@getRegister');
 // Route::get('forgotpassword', 'Auth\PasswordController@get');
 
 Route::controllers([
+
 	'' => 'Auth\AuthController',
 	'/' =>'Auth\PasswordController',
+
 	//'logout' =>'Auth\AuthController',
 ]);
 

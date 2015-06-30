@@ -1,21 +1,35 @@
-<h2>Send  Email</h2>
+@extends('app')
 
-<form action = "{{ url('store') }}"  method="POST">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+@section('content')
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
 
-<input type="text" name="sendto" class="form-control" placeholder="SendTo">
-</br>
-</br>
-<input type="text" name="subject" class="form-control" placeholder="Subject">
+				<h2>Send  Email</h2>
+				</br>
+				<form action = "{{ url('store') }}"  method="POST">
 
-</br>
-</br>
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="text" name="sendto" class="form-control" placeholder="SendTo">
+					</br>
+					</br>
+					<input type="text" name="subject" class="form-control" placeholder="Subject">
+					</br>
+					</br>
+					<input type="text" name="detail" class="form-control" placeholder="M E S S A G E........">
+					</br>
+					</br>
+					
+					</br><input type="submit" value="send"></br>
 
-<!-- <label for="Detail_restaurant">Detail</label><br> -->
-<textarea  name="detail"
-		   placeholder="M E S S A G E........"></textarea></br>
+				</form>
 
+				<form action = "{{ url('home') }}"  method="GET">
+					</br><input type="submit" value="back"></br>
+				</form>
 
-</br><input type="submit" value="send"></br>
+		</div>
+	</div>
+</div>
 
-</form>
+@endsection

@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use DB;
+use Auth;
 
 class HomeController extends Controller {
 
@@ -32,7 +33,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$email_inbox = DB::table('email')->get();
+		$user = Auth::user();
+		$email_inbox = DB::table('email')->where('id_receive',$user->id)->get();
 		return view('home', ['email' => $email_inbox]);
 	}
 
